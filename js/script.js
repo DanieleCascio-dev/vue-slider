@@ -33,6 +33,7 @@ const app = createApp({
       indexCounter: 0,
     };
   },
+
   methods: {
     showPrev: function () {
       if (this.indexCounter === 0) {
@@ -48,6 +49,16 @@ const app = createApp({
         this.indexCounter++;
       }
     },
+  },
+
+  created() {
+    setInterval(() => {
+      if (this.indexCounter === this.slides.length - 1) {
+        this.indexCounter = 0;
+      } else {
+        this.indexCounter++;
+      }
+    }, 3000);
   },
 }).mount("#app");
 
